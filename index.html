@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>刷</title>
+  <style>
+    /* --- 樣式設定 (CSS) --- */
+    :root {
+      --primary: #007AFF;
+      /* 主色調 */
+      --bg: #F2F2F7;
+      /* 背景色 */
+      --card-bg: #FFFFFF;
+      /* 卡片背景 */
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    /* 搜尋區塊 */
+    .search-container {
+      position: sticky;
+      top: 0;
+      background-color: var(--bg);
+      padding-bottom: 15px;
+      z-index: 100;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 15px;
+      font-size: 18px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      outline: none;
+      box-sizing: border-box;
+      /* 確保 padding 不會撐破寬度 */
+    }
+
+    /* 快速標籤區 */
+    .quick-tags {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      overflow-x: auto;
+      /* 支援橫向捲動 */
+      white-space: nowrap;
+      padding-bottom: 5px;
+    }
+
+    .tag-btn {
+      background: #e5e5ea;
+      color: #333;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .tag-btn:active,
+    .tag-btn.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* 卡片列表 */
+    .card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .credit-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+      border-left: 6px solid var(--primary);
+      /* 左側裝飾線 */
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .card-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .rate-badge {
+      background: #FF3B30;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 4px rgba(255, 59, 48, 0.3);
+    }
+
+    .card-tags {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .highlight-tag {
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .card-note {
+      font-size: 0.85rem;
+      color: #8e8e93;
+      background: #f2f2f7;
+      padding: 8px;
+      border-radius: 8px;
+      display: inline-block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* 無結果時顯示 */
+    .no-result {
+      text-align: center;
+      color: #999;
+      margin-top: 30px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="搜尋通路 (例: 7-11, 網購)..." autocomplete="off">
+
+    <div class="quick-tags" id="quickTags">
+      <button class="tag-btn" onclick="setSearch('Line Pay')">Line Pay</button>
+      <button class="tag-btn" onclick="setSearch('Apple Pay')">Apple Pay</button>
+      <button class="tag-btn" onclick="setSearch('網購')">網購</button>
+      <button class="tag-btn" onclick="setSearch('超商')">超商</button>
+      <button class="tag-btn" onclick="setSearch('日本')">日本</button>
+      <button class="tag-btn" onclick="setSearch('加油')">加油</button>
+    </div>
+  </div>
+
+  <div id="cardList" class="card-list">
+  </div>
+  <div id="noResult" class="no-result">沒有找到符合的卡片 😅</div>
+
+  <script>
+    // ==========================================
+    //  【資料設定區】 請在這裡修改你自己的卡片
+    // ==========================================
+    const myCards = [
+      {
+        name: "富邦 J 卡",
+        rate: "3%",
+        tags: "日本, 韓國, Line Pay, 實體店面",
+        note: "日韓實體店適用，國內 Line Pay 需登錄"
+      },
+      {
+        name: "國泰 CUBE (玩數位)",
+        rate: "3%",
+        tags: "網購, 蝦皮, momo, PChome, 串流影音",
+        note: "記得切換到『玩數位』權益"
+      },
+      {
+        name: "國泰 CUBE (樂饗購)",
+        rate: "3%",
+        tags: "餐廳, 外送, Uber Eats, Foodpanda, 百貨, SOGO",
+        note: "記得切換到『樂饗購』權益"
+      },
+      {
+        name: "台新 @GoGo",
+        rate: "3.8%",
+        tags: "Line Pay, 全支付, 網購, 蝦皮, momo",
+        note: "上限 1000 點，帳單需滿 5000"
+      },
+      {
+        name: "聯邦吉鶴卡",
+        rate: "4.5%",
+        tags: "日本, Apple Pay, QUICPay",
+        note: "日本 Apple Pay 專用，國內 1%"
+      },
+      {
+        name: "永豐 Sport 卡",
+        rate: "7%",
+        tags: "Apple Pay, Google Pay, 健身工廠, Garmin",
+        note: "需每月運動 7000 卡路里"
+      },
+      {
+        name: "彰銀 My 樂",
+        rate: "6%",
+        tags: "Google Pay, 台灣 Pay, Line Pay, 街口",
+        note: "每月 1 號需登錄，名額有限"
+      },
+      {
+        name: "通用備用卡 (無腦刷)",
+        rate: "1%",
+        tags: "一般消費, 保費, 繳稅, 醫院",
+        note: "當其他卡都不適用時刷這張"
+      }
+    ];
+    // ==========================================
+
+
+    // --- 程式邏輯區 (不需要修改) ---
+
+    const cardListEl = document.getElementById('cardList');
+    const searchInput = document.getElementById('searchInput');
+    const noResultEl = document.getElementById('noResult');
+
+    // 渲染卡片函數
+    function renderCards (filterText = '') {
+      cardListEl.innerHTML = '';
+
+      // 搜尋邏輯：比對名稱或標籤
+      const filtered = myCards.filter(card => {
+        const text = (card.name + card.tags + card.note).toLowerCase();
+        return text.includes(filterText.toLowerCase());
+      });
+
+      if (filtered.length === 0) {
+        noResultEl.style.display = 'block';
+      } else {
+        noResultEl.style.display = 'none';
+
+        // 依照回饋率排序 (簡單將數字大者排前)
+        filtered.sort((a, b) => parseFloat(b.rate) - parseFloat(a.rate));
+
+        filtered.forEach(card => {
+          const html = `
+                        <div class="credit-card">
+                            <div class="card-header">
+                                <h3 class="card-name">${card.name}</h3>
+                                <div class="rate-badge">${card.rate}</div>
+                            </div>
+                            <div class="card-tags">
+                                <span class="highlight-tag">適用：</span>${highlightText(card.tags, filterText)}
+                            </div>
+                            <div class="card-note">
+                                💡 ${card.note}
+                            </div>
+                        </div>
+                    `;
+          cardListEl.innerHTML += html;
+        });
+      }
+    }
+
+    // 關鍵字高亮功能
+    function highlightText (text, keyword) {
+      if (!keyword) return text;
+      const regex = new RegExp(`(${keyword})`, 'gi');
+      return text.replace(regex, '<span style="background:yellow; color:black;">$1</span>');
+    }
+
+    // 點擊快速標籤
+    function setSearch (keyword) {
+      searchInput.value = keyword;
+      renderCards(keyword);
+
+      // 按鈕變色效果
+      document.querySelectorAll('.tag-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+
+    // 監聽輸入框
+    searchInput.addEventListener('input', (e) => {
+      renderCards(e.target.value);
+      // 清除按鈕選取狀態
+      document.querySelectorAll('.tag-btn').forEach(btn => btn.classList.remove('active'));
+    });
+
+    // 初始渲染
+    renderCards();
+
+  </script>
+</body>
+
+</html>
