@@ -2,7 +2,7 @@
 
 /* style.css */
 :root {
-    --primary: #007AFF;
+    --primary: #63a6ee;
     --bg: #F2F2F7;
     --card-bg: #FFFFFF;
 }
@@ -65,7 +65,7 @@ input[type="text"] {
 
 .rate-badge {
     float: right;
-    background: #FF3B30;
+    background: #fa625a;
     color: white;
     padding: 6px 12px;
     border-radius: 12px;
