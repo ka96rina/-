@@ -4,10 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的信用卡優惠</title>
+  <title>刷</title>
 
   <meta name="robots" content="noindex, nofollow" /><!--略過搜尋-->
   <meta name="format-detection" content="telephone=no" /><!--略過撥號-->
+
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="icon" href="icon.png">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- <meta name="apple-mobile-web-app-title" content="信用卡優惠"> -->
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -30,7 +37,7 @@
 
   <div id="cardList" class="card-list">
   </div>
-  <div id="noResult" class="no-result">沒有找到符合的卡片 😅</div>
+  <div id="noResult" class="no-result">沒有找到符合的卡片Q_Q</div>
 
   <script>
     // ==========================================
@@ -66,18 +73,6 @@
         rate: "4.5%",
         tags: "日本, Apple Pay, QUICPay",
         note: "日本 Apple Pay 專用，國內 1%"
-      },
-      {
-        name: "永豐 Sport 卡",
-        rate: "7%",
-        tags: "Apple Pay, Google Pay, 健身工廠, Garmin",
-        note: "需每月運動 7000 卡路里"
-      },
-      {
-        name: "彰銀 My 樂",
-        rate: "6%",
-        tags: "Google Pay, 台灣 Pay, Line Pay, 街口",
-        note: "每月 1 號需登錄，名額有限"
       },
       {
         name: "通用備用卡 (無腦刷)",
