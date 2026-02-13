@@ -44,79 +44,132 @@
     //  【資料設定區】 請在這裡修改你自己的卡片
     // ==========================================
     const myCards = [
+      // === 台新 Richart (太陽/玫瑰卡) 2026 全權益 ===
       {
         name: "台新 Richart (Pay著刷)",
         rate: "3.8%",
-        tags: "台新Pay, 全家, 7-11, 新光三越, IKEA, 康是美",
-        note: "需切換至『Pay著刷』方案。LINE Pay 為 2.3%"
+        tags: "台新Pay, 全家, 7-11, 萊爾富, OK超商, 新光三越, skm pay, IKEA, 康是美, 屈臣氏",
+        note: "● 需切換方案 | 至 2026/06/30\n● 台新Pay 3.8% (含超商/百貨/藥妝)\n● LINE Pay 基礎 2.3% (每月領券加碼後 3.8%)",
+        link: "https://mkp.taishinbank.com.tw/s/2025/RichartCard_2025/index.html"
       },
       {
         name: "台新 Richart (天天刷)",
         rate: "3.3%",
-        tags: "全家, 7-11, 家樂福, 大買家, 唐吉軻德, LOPIA, 高鐵, 台鐵, Uber, 中油, 寶雅, 屈臣氏",
-        note: "需切換至『天天刷』方案。超商限用台新Pay綁定"
+        tags: "家樂福, 大買家, 唐吉軻德, LOPIA, 台鐵, 高鐵, 台灣大車隊, Yoxi, Uber, Bolt, 中油直營, 全國加油, 寶雅, 屈臣氏, 杏一, 大樹藥局, 丁丁藥局, 佑全, 健康人生",
+        note: "● 需切換方案 | 至 2026/06/30\n● 超商 7-11/全家 限用台新Pay綁定才有 3.3%\n● 含所有通勤、加油、連鎖藥局",
+        link: "https://mkp.taishinbank.com.tw/s/2025/RichartCard_2025/index.html"
       },
       {
         name: "台新 Richart (大筆刷)",
         rate: "3.3%",
-        tags: "新光三越, SOGO, 遠東百貨, 微風, 101, 巨城, 夢時代, 三井Outlet, 華泰名品城, UNIQLO, GU, ZARA",
-        note: "需切換至『大筆刷』方案。含居家裝修(IKEA/特力屋)與時尚品牌"
+        tags: "遠東SOGO, 廣三SOGO, 遠東百貨, 微風, 台北101, 漢神百貨, 夢時代, 統一時代, 中友, 三井Outlet, 華泰名品城, 特力屋, HOLA, 宜得利, 瑪黑家居, UNIQLO, GU, ZARA, NET, lululemon",
+        note: "● 需切換方案 | 至 2026/06/30\n● 含主流百貨、Outlet、家居裝修與時尚品牌",
+        link: "https://mkp.taishinbank.com.tw/s/2025/RichartCard_2025/index.html"
       },
       {
         name: "台新 Richart (好饗刷)",
         rate: "3.3%",
-        tags: "餐廳, 王品, Uber Eats, Foodpanda, 售票, 晶華, 萬豪, 老爺, 錢櫃, 好樂迪",
-        note: "需切換至『好饗刷』方案。含餐飲、外送、飯店與KTV"
+        tags: "全台餐飲, 王品, Uber Eats, foodpanda, 拓元售票, KKTIX, 年代售票, 寬宏, 晶華, 萬豪, 老爺, 寒沐, 洲際, 錢櫃, 好樂迪, ONCOR",
+        note: "● 需切換方案 | 至 2026/06/30\n● 餐廳不含餐券\n● 含各大售票平台、五星級飯店與KTV",
+        link: "https://mkp.taishinbank.com.tw/s/2025/RichartCard_2025/index.html"
       },
       {
         name: "台新 Richart (數趣刷)",
         rate: "3.3%",
-        tags: "蝦皮, momo, 酷澎, 淘寶, PChome, Amazon, 博客來, Netflix, Disney+, Steam, ChatGPT, Notion",
-        note: "需切換至『數趣刷』方案。含網購、影音、遊戲與AI工具"
+        tags: "蝦皮, momo, 酷澎, Coupang, 淘寶, PChome, Amazon, 博客來, Netflix, Disney+, MyCard, 遊戲橘子, Steam, Nintendo, ChatGPT, Notion, Canva, Perplexity, Claude, Hahow, PressPlay",
+        note: "● 需切換方案 | 至 2026/06/30\n● 含網購、遊戲串流、AI工具與線上課程",
+        link: "https://mkp.taishinbank.com.tw/s/2025/RichartCard_2025/index.html"
       },
       {
         name: "台新 Richart (玩旅刷)",
         rate: "3.3%",
-        tags: "海外消費, 國外網購, Suica, 華航, 長榮, 星宇, Klook, Agoda, Booking.com, 雄獅, 易遊網",
-        note: "需切換至『玩旅刷』方案。含海外消費、航空公司與訂房平台"
+        tags: "海外消費, Grab, Suica, ICOCA, PASMO, 華航, 長榮, 星宇, 虎航, 國泰航空, Klook, Agoda, Booking.com, Trip.com, 雄獅, 易遊網, 可樂旅遊",
+        note: "● 需切換方案 | 至 2026/06/30\n● 含海外實體/線上、交通卡充值、航空與旅行社",
+        link: "https://mkp.taishinbank.com.tw/s/2025/RichartCard_2025/index.html"
       },
       {
         name: "台新 Richart (假日刷)",
-        rate: "2%",
-        tags: "假日, 週六, 週日, 節日, 無腦刷, Line Pay",
-        note: "需切換至『假日刷』方案。國內節假日不限通路(含Line Pay) 2%"
+        rate: "2.0%",
+        tags: "週六, 週日, 國定假日, 無腦刷, LINE Pay",
+        note: "● 需切換方案 | \n●至 2026/06/30\n● 國內節假日不限通路(含LINE Pay)享 2%",
+        link: "https://mkp.taishinbank.com.tw/s/2025/RichartCard_2025/index.html"
+      },
+
+      // === 台新 2月領券加碼 (限時) ===
+      {
+        name: "台新 (領券-健身保健)",
+        rate: "最高 5%",
+        tags: "World Gym, 健身工廠, Curves, 不老松, 詩威特, 迪卡儂, 摩曼頓, 尚智, 葡眾, 賀寶芙, 安麗, 大研生醫, 里仁, 棉花田",
+        note: "需在 Richart Life 領券 | 至 2026/02/28\n● 領券加碼 3% (上限500點)\n● 搭配「假日刷」最高 5%",
+        link: "https://mkp.taishinbank.com.tw/s/2025/RichartCard_2025/index.html"
       },
       {
-        name: "台新 Richart (2月領券活動專區)",
-        rate: "5-8%",
-        tags: "健身, 迪卡儂, 摩曼頓, 餐廳, 飯店, LINE Pay, 運動, 藥妝",
-        note: "2月領券加碼：健身/保健+3%(最高5%)、餐飲/飯店滿額最高回饋8%、LINE Pay加碼1.5%(共3.8%)"
+        name: "台新 (領券-LINE Pay)",
+        rate: "最高 3.8%",
+        tags: "LINE Pay, 夜市, 小吃, 飲料店",
+        note: "需在 Richart Life 領券 | 至 2026/02/28\n● LINE Pay 領券加碼 1.5% (上限500點)\n● 需搭配『Pay著刷』達成 3.8%",
+        link: "https://mkp.taishinbank.com.tw/s/2025/RichartCard_2025/index.html"
       },
+
+      // === 國泰 CUBE 系列 (2026 全權益) ===
       {
         name: "國泰 CUBE (玩數位)",
         rate: "3%",
-        tags: "網購, 蝦皮, momo, PChome, 串流影音",
-        note: "記得切換到『玩數位』權益"
+        tags: "蝦皮, momo, PChome, 酷澎, 淘寶, Amazon, Netflix, Disney+, Spotify, Steam, 小米, ChatGPT, OpenAI, 博客來",
+        note: "● 需切換方案 | \n●至 2026/06/30\n● 2026 新增 AI工具 (ChatGPT 等)\n● 小樹點回饋無上限",
+        link: "https://www.cathay-cube.com.tw/cathaybk/personal/product/credit-card/cards/cube-list"
       },
       {
         name: "國泰 CUBE (樂饗購)",
         rate: "3%",
-        tags: "餐廳, 外送, Uber Eats, Foodpanda, 百貨, SOGO",
-        note: "記得切換到『樂饗購』權益"
+        tags: "全台餐廳, Uber Eats, foodpanda, 新光三越, SOGO, 遠百, 微風, 101, 誠品, UNIQLO, ZARA, GAP, 康是美, 寶雅, 屈臣氏",
+        note: "● 需切換方案 | \n●至 2026/06/30\n● 含美食外送、全台百貨、全球服飾與藥妝",
+        link: "https://www.cathay-cube.com.tw/cathaybk/personal/product/credit-card/cards/cube-list"
       },
       {
-        name: "聯邦吉鶴卡",
-        rate: "4.5%",
-        tags: "日本, Apple Pay, QUICPay",
-        note: "日本 Apple Pay 專用，國內 1%"
+        name: "國泰 CUBE (趣旅行)",
+        rate: "3%",
+        tags: "海外消費, 國外實體, 華航, 長榮, 星宇, 虎航, Klook, Agoda, Booking.com, Trip.com, 易遊網, 台灣高鐵, Uber, Grab, 和運租車",
+        note: "● 需切換方案 | \n●至 2026/06/30\n● 海外實體消費、航空訂房與國內交通",
+        link: "https://www.cathay-cube.com.tw/cathaybk/personal/product/credit-card/cards/cube-list"
       },
       {
-        name: "通用備用卡 (無腦刷)",
-        rate: "1%",
-        tags: "一般消費, 保費, 繳稅, 醫院",
-        note: "當其他卡都不適用時刷這張"
+        name: "國泰 CUBE (集精選)",
+        rate: "2%",
+        tags: "全聯, 7-11, 全家, 家樂福, 中油直營, LINE Pay, 台灣大車隊, 宜得利, IKEA, 麥當勞, 星巴克, 特斯拉, Gogoro",
+        note: "● 需切換方案 | \n● 至 2026/06/30\n● ⚠️ 7-11/全家 限實體卡感應或插卡支付\n● 2026 新增充電與停車通路",
+        link: "https://www.cathay-cube.com.tw/cathaybk/personal/product/credit-card/cards/cube-list"
+      },
+      {
+        name: "國泰 CUBE (領券-餐飲/飯店)",
+        rate: "最高 8%",
+        tags: "餐廳, 飯店, 住宿",
+        note: "● 需至國泰 APP 領券 | \n●至 2026/03/01\n● 滿額門檻：6千贈200點/1.68萬贈800點\n● 搭配「好饗刷」最高 8%",
+        link: "https://www.cathay-cube.com.tw/cathaybk/personal/product/credit-card/cards/cube-list"
+      },
+      {
+        name: "國泰 CUBE (慶生月)",
+        rate: "最高 10%",
+        tags: "壽星, 生日, 錢櫃, 好樂迪, 威秀影城, 國賓影城, 雲朗觀光, 遠東SOGO",
+        note: "● 壽星當月專屬 |\n● 2026 第一季\n● 指定 KTV/電影/餐廳 10%\n● 遠東SOGO百貨 3.5%",
+        link: "https://www.cathay-cube.com.tw/cathaybk/personal/product/credit-card/cards/cube-list"
+      },
+      {
+        name: "星展 eco 極簡卡 (一般/海外)",
+        rate: "1%~5%",
+        tags: "一般消費, 國內刷卡, 保費, 日本, 韓國, 新加坡, 歐洲, 美洲",
+        note: "● 至 2026/06/30\n● 國內一般消費 1% 無上限\n● 日/韓/星/歐/美 實體消費最高 5% (加碼4%上限1000點)\n● 保費 1% 無上限",
+        link: "https://www.dbs.com.tw/personal-zh/cards/dbs-credit-cards/eco-ez"
+      },
+      {
+        name: "星展 eco (綠色交通)",
+        rate: "10%",
+        tags: "特斯拉, Tesla, Gogoro, PBGN, iRent, 格上租車, LINE GO",
+        note: "● 至 2026/12/31\n● 指定綠色通路 10% (加碼9%上限300點)\n● 包含：特斯拉充電、Gogoro電池、租車服務",
+        link: "https://www.dbs.com.tw/personal-zh/cards/dbs-credit-cards/eco-ez"
       }
     ];
+
     // ==========================================
 
 
@@ -126,71 +179,127 @@
     const searchInput = document.getElementById('searchInput');
     const noResultEl = document.getElementById('noResult');
 
-    // 渲染卡片函數
+    // --- renderCards 核心邏輯 ---
     function renderCards (filterText = '') {
       cardListEl.innerHTML = '';
+      const query = filterText.toLowerCase().trim();
 
-      // 搜尋邏輯：比對名稱或標籤
-      const filtered = myCards.filter(card => {
-        const text = (card.name + card.tags + card.note).toLowerCase();
-        return text.includes(filterText.toLowerCase());
+      const associations = {
+        "超商": ["7-11", "711", "seven", "全家", "family", "萊爾富", "ok", "ok超商"],
+        "電子支付": ["apple pay", "google pay", "samsung pay", "行動支付", "感應支付"],
+        "行動支付": ["line pay", "街口", "台新pay", "全支付", "icash pay", "悠遊付"],
+        "外送": ["uber eats", "foodpanda", "外送平台"],
+        "網購": ["蝦皮", "momo", "pchome", "淘寶", "coupang", "酷澎"],
+        "交通": ["高鐵", "台鐵", "捷運", "uber", "yoxi", "taxi", "計程車", "租車"],
+        "海外消費": ["日本", "韓國", "歐洲", "美洲", "新加坡", "國外"],
+        "藥妝": ["屈臣氏", "康是美", "寶雅", "杏一"],
+        "咖啡": ["星巴克", "路易莎", "cama"]
+      };
+
+      // 1. 先進行初步篩選 (將 filtered 定義移到這裡)
+      let filtered = myCards.filter(card => {
+        const name = card.name.toLowerCase();
+        const note = card.note.toLowerCase();
+        const tagsArray = card.tags.toLowerCase().split(',').map(t => t.trim());
+
+        const checkMatch = (term) => {
+          if (name.includes(term) || note.includes(term)) return true;
+          return tagsArray.some(tag => {
+            if (term.length <= 2) return tag === term;
+            return tag.includes(term);
+          });
+        };
+
+        if (checkMatch(query)) return true;
+
+        for (let key in associations) {
+          if (query === key) {
+            if (associations[key].some(item => checkMatch(item))) return true;
+          }
+          if (associations[key].includes(query)) {
+            if (checkMatch(key)) return true;
+          }
+        }
+        return false;
       });
 
+      // 2. 處理排除項目與保底邏輯 (移到 filtered 定義之後)
+      const commonExclusions = ["全聯", "水費", "電費", "瓦斯", "稅", "學費", "罰鍰", "規費", "醫指付", "公立醫院", "超商", "7-11", "全家", "ok", "萊爾富"];
+
+      if (query !== '') {
+        const isExcluded = commonExclusions.some(ex => query.includes(ex));
+
+        if (!isExcluded) {
+          const defaultCards = myCards.filter(card =>
+            card.tags.includes("一般消費") || card.tags.includes("無腦刷")
+          );
+
+          defaultCards.forEach(dc => {
+            // 現在這裡可以讀取到 filtered 了
+            if (!filtered.find(f => f.name === dc.name)) {
+              filtered.push(dc);
+            }
+          });
+        }
+      }
+
+      // 3. 渲染邏輯
       if (filtered.length === 0) {
         noResultEl.style.display = 'block';
       } else {
         noResultEl.style.display = 'none';
-
-        // 依照回饋率排序 (簡單將數字大者排前)
         filtered.sort((a, b) => parseFloat(b.rate) - parseFloat(a.rate));
 
         filtered.forEach(card => {
-          const html = `
-                        <div class="credit-card">
-                            <div class="card-header">
-                                <h3 class="card-name">${card.name}</h3>
-                                <div class="rate-badge">${card.rate}</div>
-                            </div>
-                            <div class="card-tags">
-                                <span class="highlight-tag">適用：</span>${highlightText(card.tags, filterText)}
-                            </div>
-                            <div class="card-note">
-                                💡 ${card.note}
-                            </div>
-                        </div>
-                    `;
-          cardListEl.innerHTML += html;
+          const tagsHtml = card.tags.split(',').map(tag => `<span class="tag">${tag.trim()}</span>`).join('');
+          const noteHtml = card.note
+            .replace(/\n/g, '<br>')
+            .replace(/(\d+(\.\d+)?%)/g, '<span class="highlight-percent">$1</span>');
+
+          const cardHtml = `
+                <div class="credit-card">
+                    <div class="card-header">
+                        <h3 class="card-name">${card.name}</h3>
+                        <div class="rate-badge">${card.rate}</div>
+                    </div>
+                    <div class="card-tags">${tagsHtml}</div>
+                    <div class="card-limit"><span class="limit-title">⚠️ 注意事項 / 限制：</span>${noteHtml}</div>
+                    ${card.link ? `<a href="${card.link}" target="_blank" class="detail-btn">查看官網細節</a>` : ''}
+                </div>`;
+          cardListEl.innerHTML += cardHtml;
         });
       }
     }
 
-    // 關鍵字高亮功能
-    function highlightText (text, keyword) {
-      if (!keyword) return text;
-      const regex = new RegExp(`(${keyword})`, 'gi');
-      return text.replace(regex, '<span style="background:yellow; color:black;">$1</span>');
-    }
-
-    // 點擊快速標籤
+    // 修改後的 setSearch 函式，支援點第二次取消
     function setSearch (keyword) {
-      searchInput.value = keyword;
-      renderCards(keyword);
+      const input = document.getElementById('searchInput');
 
-      // 按鈕變色效果
-      document.querySelectorAll('.tag-btn').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
+      // 邏輯：如果目前的輸入內容跟點擊的標籤一樣，就清空（代表取消）
+      if (input.value === keyword) {
+        input.value = '';
+      } else {
+        input.value = keyword;
+      }
+
+      // 重新渲染卡片
+      renderCards(input.value);
+
+      // 更新標籤按鈕的「選中狀態 (active)」
+      document.querySelectorAll('.tag-btn').forEach(btn => {
+        // 如果關鍵字是空的，就亮起「全部」按鈕
+        if (input.value === '') {
+          btn.classList.toggle('active', btn.innerText === '全部');
+        } else {
+          btn.classList.toggle('active', btn.innerText === input.value);
+        }
+      });
     }
 
-    // 監聽輸入框
-    searchInput.addEventListener('input', (e) => {
-      renderCards(e.target.value);
-      // 清除按鈕選取狀態
-      document.querySelectorAll('.tag-btn').forEach(btn => btn.classList.remove('active'));
-    });
+    searchInput.addEventListener('input', (e) => renderCards(e.target.value));
 
-    // 初始渲染
+    // 初始載入
     renderCards();
-
   </script>
 </body>
 

@@ -5,6 +5,10 @@
     --primary: #63a6ee;
     --bg: #F2F2F7;
     --card-bg: #FFFFFF;
+    --secondary: #5856D6;
+    --warning-bg: #FFF9E6;
+    --warning-text: #856404;
+    --tag-bg: #E9E9EB;
 }
 
 body {
@@ -55,19 +59,93 @@ input[type="text"] {
 }
 
 .credit-card {
-    background: var(--card-bg);
-    border-radius: 16px;
-    padding: 20px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    border-left: 6px solid var(--primary);
+    background: #fff;
+    border-radius: 20px;
+    padding: 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+
+/* 標題與趴數 */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
 }
 
 .rate-badge {
-    float: right;
-    background: #fa625a;
-    color: white;
-    padding: 6px 12px;
-    border-radius: 12px;
+    font-size: 1.4rem;
+    color: #FF3B30;
+    font-weight: 800;
+}
+.highlight-percent {
+    color: #ff5200;       /* 鮮橘色，很吸睛 */
+    font-weight: 800;    /* 特粗 */
+    font-size: 1.1em;    /* 稍微大一點點 */
+    background-color: #fff4e5; /* 淡淡的底色，像螢光筆劃過 */
+    padding: 0 2px;
+    border-radius: 3px;
+}
+/* 如果是保底卡片，可以加一個淡色邊框區分 (可選) */
+.credit-card:has(.tag:contains("一般消費")) {
+    border-left: 5px solid #bdc3c7;
+}
+/* 通路標籤化 */
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+.tag {
+    background: var(--tag-bg);
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    color: #555;
+}
+
+/* 限制條款區塊 */
+.card-limit {
+    background: var(--warning-bg);
+    color: var(--warning-text);
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    border-left: 4px solid #FFCC00;
+}
+
+.limit-title {
     font-weight: bold;
+    display: block;
+    margin-bottom: 2px;
+}
+/* 如果備註包含「領券」字眼，可以加個底色提醒自己 */
+.card-note:contains("領券") {
+    background: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
+}
+
+.detail-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 15px;
+    background-color: #f8f9fa;
+    color: #007AFF;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    border: 1px solid #007AFF;
+    text-align: center;
+    width: calc(100% - 30px); /* 讓它寬一點比較好點 */
+}
+
+.detail-btn:active {
+    background-color: #e1f0ff;
 }
